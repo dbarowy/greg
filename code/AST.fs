@@ -1,7 +1,6 @@
 module AST
 
-type Num = int
-type Var = char
+
 type Color =
 | Red
 | Green
@@ -12,9 +11,12 @@ type LineType =
 | Dotted
 | Solid
 
+type Num = int
+type Var = char
 type Val = 
-| Num
-| Var
+| Num of int
+| Var of char
+
 type Trig = 
 | Sin
 | Cos
