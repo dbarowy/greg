@@ -1,20 +1,35 @@
 module AST
 
-type Domain = {var: char; lower: int; upper: int}
 
-// type num = int
-// type var = char
-// type Color =
-// | Red
-// | Green
-// | Blue
-// | Purple
-// type Function = 
-// | Polynomial of Polynomial
-// | Trig of Trig
-// | Op of {first: Function; second: Function}
-// type Polynomial = 
-// | num
-// | var
-// type Plot = {f: Function; line: LineType; color: Color }
-// type Graph = {plots: Plot list; domain: Domain}
+type Color =
+| Red
+| Green
+| Blue
+| Purple
+type LineType = 
+| Dashed
+| Dotted
+| Solid
+
+type Num = int
+type Var = char
+type Val = 
+| Num of int
+| Var of char
+
+type Trig = 
+| Sin
+| Cos
+| Tan
+type Function = 
+| Val of Val
+| Trig of Trig
+| Op of Op
+and  Op = {first: Function; second: Function}
+and Sin = Function
+and Cos = Function
+and Tan = Function
+
+type Plot = {f: Function; line: LineType; color: Color}
+type Domain = {var: Var; lower: Num; upper: Num}
+type Graph = {plots: Plot list; domain: Domain}
