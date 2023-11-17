@@ -18,9 +18,10 @@ let domain =
             (pright
                 (pad (pstr "from"))
                 (num))
-            (pright
+            (pbetween
                 (pad (pstr "to"))
-                (num))
+                (num)
+                (pchar '.'))
             (fun(a,b: int) -> { lower= a; upper= b }))
         (fun(a,b) -> { var= a; bounds= b })
 
