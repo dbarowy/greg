@@ -13,16 +13,17 @@ type LineType =
 
 type Num = int
 type Var = char
-type Val = 
-| Num of int
-| Var of char
+
+// type Val = 
+// | Num of int
+// | Var of char
 
 type Trig = 
 | Sin
 | Cos
 | Tan
 type Function = 
-| Val of Val
+// | Val of Val
 | Trig of Trig
 | Op of Op
 and  Op = {first: Function; second: Function}
@@ -31,5 +32,6 @@ and Cos = Function
 and Tan = Function
 
 type Plot = {f: Function; line: LineType; color: Color}
-type Domain = {var: Var; lower: Num; upper: Num}
+type Bound = {lower: Num; upper:Num}
+type Domain = {var: Var; bounds: Bound}
 type Graph = {plots: Plot list; domain: Domain}
