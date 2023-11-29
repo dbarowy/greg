@@ -41,31 +41,49 @@ let pVal =
     <|>
     (var |>> (fun var -> Var var))) |>> (fun v -> Val v)
 
+let plus = pchar '+' <!> "plus"
+let minus = pchar '-' <!> "minus"
+let times = pchar '*' <!> "times"
+let div = pchar '/' <!> "div"
+let exp = pchar '^' <!> "exp"
+
+let op = plus <|> minus <|> times <|> div <|> exp
+
+let whichOp (left: Func, mid: char, right:Func) = 
+    match mid with
+    | '+' -> Op(Plus (left, right))
+    | '-' -> Op(Minus (left, right))
+    | '*' -> Op(Times (left, right))
+    | '/' -> Op(Div (left, right))
+    | '^' -> Op(Exp (left, right))
+    | _ -> failwith"invalid expression"
+
 let pOp = 
-    p3seq
-        (Func)
-        (pletter)
-        (Func)
-        (fun(a,b,c) -> {first= a; op= b; second=c})
-    |>> (fun {first= a; op= b; second=c} -> Op {first= a; op= b; second=c})
+    pbetween
+        (pchar '(')
+        (p3seq
+            (Func)
+            (op)
+            (Func)
+            (whichOp))
+        (pchar ')')
 
 let pSin = 
-    pbetween
-        (pstr "Sin(")
+    pright
+        (pstr "Sin")
         Func
-        (pchar ')')
-
+    |>> fun f -> Trig(Sin(f))
 let pCos = 
-    pbetween
-        (pstr "Cos(")
+    pright
+        (pstr "Cos")
         Func
-        (pchar ')')
+    |>> fun f -> Trig(Cos(f))
 
 let pTan = 
-    pbetween
-        (pstr "Tan(")
+    pright
+        (pstr "Tan")
         Func
-        (pchar ')')
+    |>> fun (f: Func) -> Trig(Tan(f))
 
 let Trig = pSin <|> pCos <|> pTan
 
@@ -75,7 +93,7 @@ let parens =
         Func
         (pchar ')')
 
-FuncImpl := Trig <|> pOp <|> pVal <|> parens
+FuncImpl := Trig <|> pVal <|> pOp <|> parens
 
 let pRed = pstr("Red") |>> (fun v -> Red v)
 let pGreen = pstr("Green")  |>> (fun v -> Green v)
@@ -112,7 +130,7 @@ let graph =
 let grammar = pleft graph peof
 
 let parse (input: string) : Graph option =
-    let i = prepare input
+    let i = debug input
     match grammar i with
     | Success(ast: Graph, _) -> Some ast
     | Failure(_,_) -> None

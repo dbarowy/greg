@@ -18,19 +18,22 @@ type Val =
 | Num of int
 | Var of char
 
-type Trig = 
-| Sin
-| Cos
-| Tan
 
 type Func = 
 | Val of Val
 | Trig of Trig
 | Op of Op
-and Op = {first: Func; op: char; second: Func}
-and Sin = Func
-and Cos = Func
-and Tan = Func
+and Op = 
+| Plus of Func*Func
+| Minus of first: Func* second: Func
+| Times of Func*Func
+| Div of first: Func* second: Func
+| Exp of first: Func* second: Func
+and Trig = 
+| Sin of Func
+| Cos of Func
+| Tan of Func
+
 
 type Plot = {f: Func; line: LineType; color: Color}
 type Bound = {lower: Num; upper:Num}
