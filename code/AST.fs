@@ -1,23 +1,28 @@
 module AST
 
+type Num = int
+type Var = char
 
 type Color =
 | Red of string
 | Green of string
 | Blue of string
 | Purple of string
+| Pink of string
+| Gray of string
+| Black of string
+| Yellow of string
+| Orange of string
+| RGB of Num*Num*Num
+
 type LineType = 
 | Dashed of string
 | Dotted of string
 | Solid of string
 
-type Num = int
-type Var = char
-
 type Val = 
 | Num of int
 | Var of char
-
 
 type Func = 
 | Val of Val

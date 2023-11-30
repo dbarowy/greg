@@ -63,7 +63,7 @@ let pOp =
         (pchar '(')
         (p3seq
             (Func)
-            (op)
+            (pad op)
             (Func)
             (whichOp))
         (pchar ')')
@@ -100,7 +100,30 @@ let pGreen = pstr("Green")  |>> (fun v -> Green v)
 let pBlue = pstr("Blue")  |>> (fun v -> Blue v)
 let pPurple = pstr("Purple")  |>> (fun v -> Purple v)
 
-let pColor = pRed <|> pBlue <|> pGreen <|> pPurple
+let pPink = pstr("Pink")  |>> (fun v -> Pink v)
+let pGray = pstr("Gray")  |>> (fun v -> Gray v)
+let pBlack = pstr("Black")  |>> (fun v -> Black v)
+let pYellow = pstr("Yellow")  |>> (fun v -> Yellow v)
+let pOrange = pstr("Orange")  |>> (fun v -> Orange v)
+
+let pRGB = 
+    pbetween
+        (pstr("RGB("))
+        (p3seq
+            (num)
+            (pright
+                (pad (pchar ','))
+                (num))
+            (pright
+                (pad (pchar ','))
+                (num))
+            (fun (a,b,c) -> RGB(a,b,c))
+        )
+        (pchar(')'))
+
+
+
+let pColor = pRed <|> pBlue <|> pGreen <|> pPurple <|> pPink <|> pGray <|> pBlack <|> pYellow <|> pOrange <|> pRGB
 
 let pDashed = pstr("Dashed") |>> (fun v -> Dashed v)
 let pDotted = pstr("Dotted") |>> (fun v -> Dotted v)
