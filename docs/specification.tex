@@ -16,6 +16,8 @@
 \usepackage[space]{grffile}
 \usepackage{booktabs}
 \usepackage{forest}
+\usepackage{array}
+\usepackage{longtable}
 
 % This will set LaTeX to look for figures in the same directory as the .tex file
 \graphicspath{.} % The dot means current directory.
@@ -66,19 +68,37 @@ Danny Klein, Austin Osborn
 \subsection{Examples}
 \begin{enumerate}
     \item \begin{verbatim}
-        Plot sin(2x), dashed, red. x from -10 to 10.
+        Plot (3 + Sin(x)), Solid, Blue. x from -8 to 8.
+        We will make a txt file with the command above. Lets call it ex1.txt.
+        "dotnet run ex1.txt |> ex1.svg" produces an svg file with the image
+        below as output
+    \end{verbatim}
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{ex1.png}
+    \end{center}
+    \item \begin{verbatim}
+        Plot (2/x), Dotted, Green. Plot (x^2)+1, Solid, Blue. Plot (3^sin(x)), 
+        Dashed, Red. x from 0 to 5.
+        We would put this command in a new txt file called ex2.txt.
+        The command "dotnet run ex2.txt |> ex2.svg" produces an svg file 
+        that looks like three functions all plotted on the same set of axes.
+        We have not yet coded the functionality for dashed and dotted lines, 
+        but will add a picture of the output once we do.
     \end{verbatim}
     \item \begin{verbatim}
-        Plot 2x, dotted, green. Plot x^(2)+1, solid, blue. Plot 3^(sin(x)), 
-        dashed, red. x from 0 to 5.
-    \end{verbatim}
-    \item \begin{verbatim}
-        Plot 1, solid, black. x from 0 to 1.
+        Plot 1, Dashed, Black. x from 0 to 1.
+        We would put this command in a new txt file called ex3.txt.
+        The command "dotnet run ex3.txt |> ex3.svg" produces an svg file 
+        of this function, a dotted horizontal line.
+        We have not yet coded the functionality for dashed lines, 
+        but will add a picture of the output once we do.
     \end{verbatim}
 \end{enumerate}
 
 \subsection{Language Concepts}
-\quad The user would not need to understand much to write programs in our language. The user would need to be able to write equations (combining forms) in terms of numbers and variables (primitives), and represent their desired output with a linetype (primitive) and a color (primitive). A user who knows how to write equations, understands colors, and can tell the difference between a solid line and a dashed line, would be able to use our language easily. Our language takes primitives, the numbers and variables, and uses other combining forms such as exponents and trig functions to represent complex equations (combining form), and creates a graphical output (combining form) using the equations along with the color and linetype.
+    \quad The user would not need to understand much to write programs in our language. The user would need to be able to write equations (combining forms) in terms of numbers and variables (primitives), and represent their desired output with a linetype (primitive) and a color (primitive). A user who knows how to write equations, understands colors, and can tell the difference between a solid line and a dashed line, would be able to use our language easily. Our language takes primitives, the numbers and variables, and uses other combining forms such as exponents and trig functions to represent complex equations (combining form), and creates a graphical output (combining form) using the equations along with the color and linetype.
+    \\ \quad The only leap necessary from knowing what can be done, to doing it is knowing the specifics of the syntax. This includes: each function beginning with the word Plot, then the function itself, followed by its modifications (linetype and color) separated by commas, followed by a period. Then, we include a domain after all of the functions structured as: variable then range then period. 
+
 
 \subsection{Syntax}
     \begin{center} 
@@ -120,7 +140,8 @@ Danny Klein, Austin Osborn
                      | Black | Gray | Pink
                      | RGB(<Num>, <Num>, <Num>)
 
-        <Domian>   ::= <Var> from <Num> to <Num>.
+        <Domian>   ::= <Var> from <Bound>.
+        <Bound>    ::= <Num> to <Num>
         
         \end{verbatim}
         %\includegraphics[width=0.98\textwidth]{images/bnf.jpg}
@@ -129,189 +150,43 @@ Danny Klein, Austin Osborn
 
 \subsection{Semantics}
 
-\begin{enumerate}
-    \item In our first version of the graph language, we will use: variable, number, color, and linetype as primitives with the ability to expand into more customization options later on if the scope of the project expands. Var is a variable like x, or y; num is some positive or negative integer; color is a color which is either one of the basic colors which we have manually defined, or can be customized by the user using RGB(R,G,B); linetype can specify how the line is drawn i.e. solid, dashed, or dotted to start. 
-    \item The combining forms which we will use to start will be: application (functions like *), plus (+), minus (-), divide (/), exponent (\^{}), all types of functions (sin, cos, tan), plot, domain, and graph (this list will likely grow as the scope of the language grows). The mathematical operations (app, +, -, /, \^{}) each take the two functions which the operation will be performed on with the operator between them. Some other functions only take in one input value, currently the only functions like this in our language are the trig functions (sin, cos, tan), but this could change with the scope. A function is a combining form that can combine any number of smaller functions, values, or variables using the operations and functions defined. A plot will combine the combining form of the function with the primitives linetype and color to represent what the plot will look like. The domain will combine the variable we are graphing with a lower and upper bound on the domain. A graph is a combination of at least one plot and one domain. It will draw the stylized functions on the given domain all on one set of axes.
-    \item Our program is represented as a graph. A graph is a series of plots and a domain. A plot consists of a function, a linetype, and a color. A function is recursive, and can be a val, a trig, or an operation(+ ,- ,* ,/ ,\^{}) on two functions. A val is a number or a variable. A trig is sin, cos, or tan of another function. A linetype, color, num, and var are primitives. 
-    \item
-        \begin{center}
-            \begin{forest}
-                [Graph i
-                    [Plot
-                        [function
-                            [sin
-                                [val val
-                                    [2]
-                                    [x]
-                                ]
-                            ]
-                        ]
-                        [linetype
-                            [dashed]
-                        ]
-                        [color
-                            [red]
-                        ]
-                    ]
-                    [Domain
-                        [x]
-                        [-10]
-                        [10]
-                    ]
-                ]
-            \end{forest}
+\begin{center}
+    \begin{longtable} { |m{2cm}|m{4cm}|m{1cm}|m{2cm}|m{5cm}| }
+        \hline
+        Sytnax & Abstract Syntax & Type & Prec./ Assoc. & Meaning \\
+        \hline
+        x & Var of Char & Char & N/A & x is a primitive, and will represent our independent variable \\
+        \hline
+        n & Num of int & int & N/A & n is a primitive. We represent integers using the 32-bit integer data type (Int32). \\
+        \hline
+        Red & Color of Red & String & N/A & Red is a primitive that will represent the color of our line. This is the same for all other Color types besides RGB \\
+        \hline
+        RGB(200, 200, 200) & Color of RGB & Num* Num* Num & N/A & RGB is a combining form of a 3-tuple of 3 Nums that will represent an RGB color value if someone wants to specify a new color \\
+        \hline
+        Solid & Color of Solid & String & N/A & Solid is a primitive that will represent the linotype of our line, in this case a solid line. This has the same syntax for the other LineType types, Dashed and Dotted. \\
+        \hline
+        Val & Num of int or Var of Char & int or char & N/A & Val is a value which can either be a variable or a number. It is used in functions in order to allow for the flexibility requisite for algebraic expressions. \\
+        \hline
+        Sin x & Trig of Sin & Func & N/A & Sin is a type of Trig, which is a type of Func. It will perform the sine function on x, whatever the inner func is. This has the same syntax for other Trig types \\
+        \hline
+        (n + m) & Op of Plus & Func * Func & N/A & n + m is a combining form of two funcs, n and m, both of which can be any Func. It will be evaluated as the sum of the two funcs. This has the same syntax for other Op types. \\
+        \hline
+        Sin(x+(x*2)) & Func of Trig & Func & N/A & Func represents the function that we want to graph. It can be just a val, or more often it is a combining form of many smaller funcs, in this case it includes Sin, Plus, and Exp in addition to the vals x and 2. An infinite amount of unique functions of any length and complexity can be written in this syntax as long as they break down into parts that have been defined above. \\
+        \hline
+        Plot x, Dashed, Blue. & Plot of \{f: Func; line: LineType; color: Color\} & Record of Func* LineType* Color & N/A & Plot x, Dashed, Blue. is a declaration of a plot which takes the function y = x which will be drawn on a graph with some domain with a blue, dashed line. This syntax is the same for other line types (solid, dotted) and colors (red, yellow…). \\
+        \hline
+        n to m & Bound of \{lower: Num; upper: Num\} & record of int*int & N/A & n to m is a combining form of two Nums (ints) that represent the lower and upper bound of our domain. It is saved as a record with the first int as lower and the second int as upper. \\
+        \hline
+        x from n to m & Domain of \{var: Var; bounds: Bound\} & record of char* Bound & N/A & x from n to m is a combining form of a Var (char) and two Nums (ints) that represent the variable, lower bound, and upper bound of our domain. It is saved as a record with the Var as var and the two ints as a Bound record. \\
+        \hline
+        Plot (2*x), Solid, Red. Plot (3+x), Dashed, Blue. x from -n to n. & Graph of \{plots: Plot list; domain: Domain\} & record of Plot List * Domain & N/A & A Graph is our final combining form, combining our list of Plots with a domain, which will be our input. It is saved as a record of Plot List and Domain. The syntax is the same for any number of plots of different types and any one domain at the end. \\
+        \hline
+    \end{longtable}
+\end{center}
+
+\subsection{Remainig Work}
+    \quad We currently have a parser which can parse in a function/domain and make an AST with it, as well as an evaluator which can generate a svg graph of a given domain and draw a function over it if provided with the function. The next step is to combine these two further so the evaluator does not have to be explicitly given a function, but it can be parsed in. Once this is working, all the baseline functionality will be there, and we will be able to focus on implementing extra functionality like color/line type which we have in our docs already, but if those go quickly, more could be added too. 
 
 
-            \begin{forest}
-                [Graph ii
-                    [Plot
-                        [function
-                            [val val
-                                [2]
-                                [x]
-                            ]
-                        ]
-                        [linetype
-                            [dotted]
-                        ]
-                        [color
-                            [green]
-                        ]
-                    ]
-                    [Plot
-                        [function
-                            [\^{}
-                                [x]
-                                [2]
-                            ]
-                            [+]
-                            [val
-                                [1]
-                            ]
-                        ]
-                        [linetype
-                            [solid]
-                        ]
-                        [color
-                            [blue]
-                        ]
-                    ]
-                    [Domain
-                        [x]
-                        [0]
-                        [5]
-                    ]
-                ]
-            \end{forest}
-
-
-            \begin{forest}
-                [Graph iii
-                    [Plot
-                        [function
-                            [val
-                                [1]
-                            ]
-                        ]
-                        [linetype
-                            [solid]
-                        ]
-                        [color
-                            [black]
-                        ]
-                    ]
-                    [Domain
-                        [x]
-                        [0]
-                        [1]
-                    ]
-                ]
-            \end{forest}
-        \end{center}
-    \item
-    \begin{enumerate}
-        \item Yes!Any input should be able to read, but only inputs which are correct syntactically will give a graphical output. 
-        \item Programs in our language will be read through the command line. The user will give the command line input of the graph it wants to create, similar to how we evaluated the derivative calculator in lab 8. The output of the program will be a string that represents an svg program, which would translate to the given graph. This is how our trees will get evaluated:
-        \begin{enumerate}
-            \item We read in the program through the command line
-            \item A string that is an SVG program, representing a plot of the given function
-            \item Draw another tree
-        \end{enumerate}
-        \item 
-        \begin{center}
-            \begin{forest}
-                [Graph iii
-                    [Plot
-                        [function
-                            [\textbf{val}
-                                [1]
-                            ]
-                        ]
-                        [linetype
-                            [solid]
-                        ]
-                        [color
-                            [black]
-                        ]
-                    ]
-                    [Domain
-                        [x]
-                        [0]
-                        [1]
-                    ]
-                ]
-            \end{forest}
-            \\We start with the AST for example iii shown above in part 4.
-            \\ \begin{forest}
-                [Graph iii
-                    [Plot
-                        [\textbf{function}
-                            [1]
-                        ]
-                        [\textbf{linetype}
-                            [solid]
-                        ]
-                        [\textbf{color}
-                            [black]
-                        ]
-                    ]
-                    [Domain
-                        [x]
-                        [0]
-                        [1]
-                    ]
-                ]
-            \end{forest}
-            \\First step is to evaluate val to be equal to 1 since it is lowest, leftmost node
-            \\ \begin{forest}
-                [Graph iii
-                    [\textbf{Plot}
-                        [1]
-                        [solid]
-                        [black]
-                    ]
-                    [\textbf{Domain}
-                        [x]
-                        [0]
-                        [1]
-                    ]
-                ]
-            \end{forest}
-            \\Next, can evaluate function to be equal to 1, linetype to equal solid, and color to equal black
-            \\ \begin{forest}
-                [\textbf{Graph iii}
-                    [1]
-                    [solid]
-                    [black]
-                    [x]
-                    [0]
-                    [1]
-                ]
-            \end{forest}
-            \\ Next, can evaluate plot as a plot of function 1, with linetype solid, and color black, and can evaluate domain as x varying from 0 to 1
-            \\ Finally, the graph can be evaluated and outputted with these properties as code for a SVG file
-        \end{center}
-    \end{enumerate}
-\end{enumerate}
 % DO NOT DELETE ANYTHING BELOW THIS LINE
 \end{document}

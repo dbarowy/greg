@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.10.13)  29 NOV 2023 20:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.10.13)  3 DEC 2023 14:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -838,52 +838,80 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \forest@externalize@max@outer@n=\count330
 \forest@externalize@inner@n=\count331
 )
-\c@claim=\count332
-\c@definition=\count333
-\c@theorem=\count334
-\c@lemma=\count335
-\c@observation=\count336
-\c@question=\count337
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen285
+\ar@mcellbox=\box82
+\extrarowheight=\dimen286
+\NC@list=\toks58
+\extratabsurround=\skip67
+\backup@length=\skip68
+\ar@cellbox=\box83
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip69
+\LTright=\skip70
+\LTpre=\skip71
+\LTpost=\skip72
+\LTchunksize=\count332
+\LTcapwidth=\dimen287
+\LT@head=\box84
+\LT@firsthead=\box85
+\LT@foot=\box86
+\LT@lastfoot=\box87
+\LT@cols=\count333
+\LT@rows=\count334
+\c@LT@tables=\count335
+\c@LT@chunks=\count336
+\LT@p@ftn=\toks59
+)
+\c@claim=\count337
+\c@definition=\count338
+\c@theorem=\count339
+\c@lemma=\count340
+\c@observation=\count341
+\c@question=\count342
 
 (./specification.aux)
 \openout1 = `specification.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
-3.
+5.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count338
-\scratchdimen=\dimen285
-\scratchbox=\box82
-\nofMPsegments=\count339
-\nofMParguments=\count340
-\everyMPshowfont=\toks58
-\MPscratchCnt=\count341
-\MPscratchDim=\dimen286
-\MPnumerator=\count342
-\makeMPintoPDFobject=\count343
-\everyMPtoPDFconversion=\toks59
+\scratchcounter=\count343
+\scratchdimen=\dimen288
+\scratchbox=\box88
+\nofMPsegments=\count344
+\nofMParguments=\count345
+\everyMPshowfont=\toks60
+\MPscratchCnt=\count346
+\MPscratchDim=\dimen289
+\MPnumerator=\count347
+\makeMPintoPDFobject=\count348
+\everyMPtoPDFconversion=\toks61
 )
-\AtBeginShipoutBox=\box83
-Package hyperref Info: Link coloring OFF on input line 53.
+\AtBeginShipoutBox=\box89
+Package hyperref Info: Link coloring OFF on input line 55.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -893,11 +921,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count344
+\c@section@level=\count349
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
-LaTeX Info: Redefining \nameref on input line 53.
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
 
 (./specification.out) (./specification.out)
 \@outlinefile=\write5
@@ -939,62 +967,212 @@ LaTeX Info: Redefining \nameref on input line 53.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 6
-8.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 7
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (5.24501pt too wide) in paragraph at lines 74--74
- []        \OT1/pcr/m/n/10 Plot 2x, dotted, green. Plot x^(2)+1, solid, blue. P
-lot 3^(sin(x)),[] 
+Overfull \hbox (17.24501pt too wide) in paragraph at lines 75--75
+ []        \OT1/pcr/m/n/10 We will make a txt file with the command above. Lets
+ call it ex1.txt.[] 
  []
 
+
+Overfull \hbox (5.24501pt too wide) in paragraph at lines 75--75
+ []        \OT1/pcr/m/n/10 "dotnet run ex1.txt |> ex1.svg" produces an svg file
+ with the image[] 
+ []
+
+<ex1.png, id=35, 761.84625pt x 761.84625pt>
+File: ex1.png Graphic file (type png)
+<use ex1.png>
+Package pdftex.def Info: ex1.png  used on input line 77.
+(pdftex.def)             Requested size: 375.80544pt x 375.79564pt.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-] [2] [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 317.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 317.
+]
+Overfull \hbox (23.24501pt too wide) in paragraph at lines 87--87
+ []        \OT1/pcr/m/n/10 Plot (2/x), Dotted, Green. Plot (x^2)+1, Solid, Blue
+. Plot (3^sin(x)),[] 
+ []
 
-(./specification.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 317.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 317.
+
+Overfull \hbox (11.24501pt too wide) in paragraph at lines 87--87
+ []        \OT1/pcr/m/n/10 that looks like three functions all plotted on the s
+ame set of axes.[] 
+ []
+
+
+Overfull \hbox (11.24501pt too wide) in paragraph at lines 87--87
+ []        \OT1/pcr/m/n/10 We have not yet coded the functionality for dashed a
+nd dotted lines,[] 
+ []
+
+[2 <./ex1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+[]|\OT1/ptm/m/n/10 RGB(200,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+[]|\OT1/ptm/m/n/10 Num*
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+\OT1/ptm/m/n/10 Num*
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
+[]|\OT1/ptm/m/n/10 int or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
+[]|\OT1/ptm/m/n/10 Plot x,
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 1
+76.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 176.
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
+\OT1/ptm/m/n/10 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
+\OT1/ptm/m/n/10 Func*
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
+\OT1/ptm/m/n/10 Line-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
+\OT1/ptm/m/n/10 Type*
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
+[]|\OT1/ptm/m/n/10 record
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
+\OT1/ptm/m/n/10 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+[]|\OT1/ptm/m/n/10 Domain of \OMS/cmsy/m/n/10 f\OT1/ptm/m/n/10 var: Var;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+[]|\OT1/ptm/m/n/10 record
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+\OT1/ptm/m/n/10 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+\OT1/ptm/m/n/10 char*
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+[]|\OT1/ptm/m/n/10 Plot (2*x),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+\OT1/ptm/m/n/10 Solid, Red.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+\OT1/ptm/m/n/10 Plot (3+x),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+[]|\OT1/ptm/m/n/10 record
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 182--182
+\OT1/ptm/m/n/10 List *
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+\OT1/ptm/m/n/10 Do-
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 182--183
+[]|\OT1/ptm/m/n/10 A Graph is our fi-nal com-bin-ing
+ []
+
+[3]
+Underfull \vbox (badness 10000) detected at line 184
+ []
+
+[4] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
+ (./specification.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
 Package rerunfilecheck Info: File `specification.out' has not changed.
-(rerunfilecheck)             Checksum: E3A78A5B21282D077FBD34C522E88372;309.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 317.
+(rerunfilecheck)             Checksum: 93DD49CF25DFA4577100EB6D47001DF1;362.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
  ) 
 Here is how much of TeX's memory you used:
- 31359 strings out of 483107
- 689848 string characters out of 5964629
- 938019 words of memory out of 5000000
- 45893 multiletter control sequences out of 15000+600000
- 542029 words of font info for 44 fonts, out of 8000000 for 9000
+ 27926 strings out of 483107
+ 627490 string characters out of 5964629
+ 925779 words of memory out of 5000000
+ 42460 multiletter control sequences out of 15000+600000
+ 540403 words of font info for 42 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 153i,11n,174p,1589b,2760s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,11n,71p,1607b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier
-/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on specification.pdf (4 pages, 97376 bytes).
+lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on specification.pdf (5 pages, 174848 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 26 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

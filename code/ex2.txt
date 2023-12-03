@@ -1,0 +1,1 @@
+Plot (2/x), Dotted, Green. Plot (x^2)+1, Solid, Blue. Plot (3^sin(x)), Dashed, Red. x from 0 to 5.
