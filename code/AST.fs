@@ -2,6 +2,7 @@ module AST
 
 type Num = int
 type Var = char
+type Blue = string
 
 type Color =
 | Red of string

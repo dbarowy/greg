@@ -12,9 +12,12 @@ let RESOLUTION: float = 1.0
 // start of dynamic implimentation
 
 //some temperary function to test implimentation
-let temp_function (x: float) = (sin(x) + 3.0)
+let temp_function (x: float) = (sin(x) - 1.0)
+let temp_function2 (x: float) = (cos(x) + 0.5)
 
-let rec draw_function (funct: float -> float, domain: Domain, cur_value: float) : string = 
+
+
+let rec draw_function (funct: float -> float, domain: Domain, cur_value: float, color: string, line: string, iter: int) : string = 
     let scaling_factor = (CANVAS_SZ - (4.0*PADDING))/float(domain.bounds.upper - domain.bounds.lower)
     let origin_cc_x    = (2.0*PADDING) - (scaling_factor*float(domain.bounds.lower))
     let origin_cc_y    = CANVAS_SZ / 2.0
@@ -30,10 +33,21 @@ let rec draw_function (funct: float -> float, domain: Domain, cur_value: float) 
     let ending_point_y_cc   = -ending_point_y_gc * scaling_factor + origin_cc_y
 
     let over_max = cur_value + (RESOLUTION/scaling_factor) >= domain.bounds.upper
-    match over_max with 
-    | true  -> ""
-    | false -> "<line x1=\"" + (starting_point_x_cc |> string) + "\" x2=\"" + (ending_point_x_cc |> string) + "\" y1=\"" + (starting_point_y_cc |> string) + "\" y2=\"" + (ending_point_y_cc |> string) + "\" stroke=\"blue\" stroke-width=\"5\"/>\n" + 
-                draw_function (funct, domain, cur_value + (RESOLUTION/scaling_factor))
+
+    let is_dash = ((iter % 16) - 8) >= 0
+    let is_dot = (iter % 9) = 0
+
+    match line, over_max, is_dash, is_dot with 
+    | _, true, _, _  -> ""
+    | "Solid", false, _, _ -> "<line x1=\"" + (starting_point_x_cc |> string) + "\" x2=\"" + (ending_point_x_cc |> string) + "\" y1=\"" + (starting_point_y_cc |> string) + "\" y2=\"" + (ending_point_y_cc |> string) + "\" stroke=\"" + color + "\" stroke-width=\"5\"/>\n" + 
+                                draw_function (funct, domain, cur_value + (RESOLUTION/scaling_factor), color, line, iter+1)
+    | "Dashed", false, true, _ -> "<line x1=\"" + (starting_point_x_cc |> string) + "\" x2=\"" + (ending_point_x_cc |> string) + "\" y1=\"" + (starting_point_y_cc |> string) + "\" y2=\"" + (ending_point_y_cc |> string) + "\" stroke=\"" + color + "\" stroke-width=\"5\"/>\n" + 
+                                    draw_function (funct, domain, cur_value + (RESOLUTION/scaling_factor), color, line, iter+1)
+    | "Dashed", false, _, _ -> draw_function (funct, domain, cur_value + (RESOLUTION/scaling_factor), color, line, iter+1)
+    | "Dotted", false, _, true -> "<circle cx=\"" + (starting_point_x_cc |> string) + "\" cy=\"" + (starting_point_y_cc |> string) + "\" r=\"3\" fill=\"" + color + "\"/>\n" + 
+                                    draw_function (funct, domain, cur_value + (RESOLUTION/scaling_factor), color, line, iter+1)
+    | "Dotted", false, _, _ -> draw_function (funct, domain, cur_value + (RESOLUTION/scaling_factor), color, line, iter+1)
+    | _, _, _, _ -> "This shouldn't get here - somthing went wrong..."
 
 // dynamic positioning of ticks on y axis
 // TODO: fix positioning of numbers in relation to axis when y-axis on far right side
@@ -75,8 +89,7 @@ let rec tickMarks (domain: Domain, num_remaining: int) : string =
               "<text x=\"" + ((xpos - 5.0) |> string) + "\" y=\"" + ((ypos_end + num_offset) |> string) + "\" class=\"axisLabel\">" + (cur_num |> string) + "</text>\n" + 
               tickMarks (domain, (num_remaining - 1))
 
-    
-let eval (domain: Domain) : string =
+let eval_domain (domain: Domain) : string =
     let cszi = CANVAS_SZ 
     let csz = CANVAS_SZ |> string
     let lower = PADDING |> string
@@ -89,10 +102,60 @@ let eval (domain: Domain) : string =
     " <rect x=\"" + lower + "\" y=\"" + lower + "\" rx=\"10\" ry=\"10\" width=\"" + upper + "\" height=\"" + upper + "\" style=\"fill:rgb(232,232,232);stroke-width:2;stroke:rgb(0,0,0)\"/>\n" +
     " <line x1=\"" + ((2.0*PADDING) |> string) + "\" x2=\"" + upper + "\" y1=\"" + ((cszi / 2.0) |> string) + "\" y2=\"" + ((cszi / 2.0) |> string) + "\" stroke=\"black\" stroke-width=\"4\"/>\n" +
     // generate tick parks, numbers and y-axis
-    (tickMarks (domain, (domain.bounds.upper - domain.bounds.lower))) +
+    (tickMarks (domain, (domain.bounds.upper - domain.bounds.lower)))
     // generate function
-    (draw_function (temp_function, domain, domain.bounds.lower)) +
-    "</svg>\n"
+    // (draw_function (temp_function, domain, domain.bounds.lower, )) +
 
-let eval_test (graph: Graph) : string = 
-    graph.plots[0].f |> string
+
+let eval_color (color: Color) : string = 
+    match color with
+    | Red "Red" -> "red"
+    | Green "Green" -> "green"
+    | Blue "Blue" -> "blue"
+    | Purple "Purple" -> "purple"
+    | Pink "Pink" -> "pink"
+    | Gray "Gray" -> "gray"
+    | Black "Black" -> "black"
+    | Yellow "Yellow" -> "yellow"
+    | Orange "Orange" -> "orange"
+    | _ -> "black"
+
+let eval_line (line: LineType) : string = 
+    match line with
+    | Dashed "Dashed" -> "Dashed"
+    | Solid "Solid" -> "Solid"
+    | Dotted "Dotted" -> "Dotted"
+    | _ -> "Solid"
+
+
+// dan help us!
+// let eval_val (v: Val) : float -> float =
+//     match v with
+//     | Num -> (fun v -> float v)
+//     | Var -> (fun v -> )
+
+// // let eval_trig (t: Trig) : 
+
+// let eval_func (func: Func) : float -> float = 
+//     match func with
+//     | Val -> eval_val
+//     | Trig -> 
+//     | Op ->
+//     // temp_function 
+
+let eval_plot (plot: Plot, graph: Graph) : string = 
+    draw_function (temp_function, graph.domain, graph.domain.bounds.lower, eval_color plot.color, eval_line plot.line, 0)
+
+let rec eval_plots (plots: Plot list, graph: Graph) : string = 
+    match plots with
+    | [] -> ""
+    | x::xs -> eval_plot (x, graph) + eval_plots (xs, graph)
+
+let rec eval (graph: Graph) : string = 
+    eval_domain graph.domain + "\n" + eval_plots (graph.plots, graph) + "</svg>\n"
+    // + eval_functions graph.plots
+    
+
+// let eval_test (graph: Graph) : string = 
+//     // graph.plots[0].color
+//     // eval_plot graph.plots[0]

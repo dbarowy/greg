@@ -41,11 +41,11 @@ let pVal =
     <|>
     (var |>> (fun var -> Var var))) |>> (fun v -> Val v)
 
-let plus = pchar '+' <!> "plus"
-let minus = pchar '-' <!> "minus"
-let times = pchar '*' <!> "times"
-let div = pchar '/' <!> "div"
-let exp = pchar '^' <!> "exp"
+let plus = pchar '+'
+let minus = pchar '-'
+let times = pchar '*'
+let div = pchar '/'
+let exp = pchar '^'
 
 let op = plus <|> minus <|> times <|> div <|> exp
 
