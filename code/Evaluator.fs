@@ -12,7 +12,7 @@ let RESOLUTION: float = 1.0
 // start of dynamic implimentation
 
 //some temperary function to test implimentation
-let temp_function (x: float) = (sin(x))
+let temp_function (x: float) = (sin(x) + 3.0)
 
 let rec draw_function (funct: float -> float, domain: Domain, cur_value: float) : string = 
     let scaling_factor = (CANVAS_SZ - (4.0*PADDING))/float(domain.bounds.upper - domain.bounds.lower)
@@ -93,3 +93,6 @@ let eval (domain: Domain) : string =
     // generate function
     (draw_function (temp_function, domain, domain.bounds.lower)) +
     "</svg>\n"
+
+let eval_test (graph: Graph) : string = 
+    graph.plots[0].f |> string
