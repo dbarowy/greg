@@ -127,24 +127,37 @@ let eval_line (line: LineType) : string =
     | Dotted "Dotted" -> "Dotted"
     | _ -> "Solid"
 
+let eval_val (v: Val) : float -> float =
+    match v with
+    | Num n -> (fun x -> n |> float)
+    | Var z -> (fun x ->  x)
 
-// dan help us!
-// let eval_val (v: Val) : float -> float =
-//     match v with
-//     | Num -> (fun v -> float v)
-//     | Var -> (fun v -> )
+let rec eval_func (func: Func) : float -> float = 
+    match func with
+    | Val v -> eval_val v
+    | Trig t -> eval_trig t
+    | _ -> (fun x -> x)
 
-// // let eval_trig (t: Trig) : 
+and eval_sin(f: Func, n: float): float = 
+    let g = eval_func(f) n
+    sin(g)
 
-// let eval_func (func: Func) : float -> float = 
-//     match func with
-//     | Val -> eval_val
-//     | Trig -> 
-//     | Op ->
-//     // temp_function 
+and eval_cos(f: Func, n: float): float = 
+    let g = eval_func(f) n
+    cos(g)
+
+and eval_tan(f: Func, n: float): float = 
+    let g = eval_func(f) n
+    tan(g)
+
+and eval_trig (t: Trig) : float -> float = 
+    match t with
+    | Sin f -> (fun x -> eval_sin(f, x))
+    | Cos f -> (fun x -> eval_cos(f, x))
+    | Tan f -> (fun x -> eval_tan(f, x))
 
 let eval_plot (plot: Plot, graph: Graph) : string = 
-    draw_function (temp_function, graph.domain, graph.domain.bounds.lower, eval_color plot.color, eval_line plot.line, 0)
+    draw_function (eval_func (plot.f), graph.domain, graph.domain.bounds.lower, eval_color plot.color, eval_line plot.line, 0)
 
 let rec eval_plots (plots: Plot list, graph: Graph) : string = 
     match plots with
