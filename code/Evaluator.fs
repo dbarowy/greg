@@ -136,7 +136,7 @@ let rec eval_func (func: Func) : float -> float =
     match func with
     | Val v -> eval_val v
     | Trig t -> eval_trig t
-    | _ -> (fun x -> x)
+    | Op o -> eval_op o
 
 and eval_sin(f: Func, n: float): float = 
     let g = eval_func(f) n
@@ -156,6 +156,37 @@ and eval_trig (t: Trig) : float -> float =
     | Cos f -> (fun x -> eval_cos(f, x))
     | Tan f -> (fun x -> eval_tan(f, x))
 
+
+
+and eval_plus(t:TwoOp, n: float) : float = 
+    let h = eval_func(t.first) n
+    let j = eval_func(t.second) n
+    h+j
+and eval_minus(t:TwoOp, n: float) : float = 
+    let h = eval_func(t.first) n
+    let j = eval_func(t.second) n
+    h-j
+and eval_times(t:TwoOp, n: float) : float = 
+    let h = eval_func(t.first) n
+    let j = eval_func(t.second) n
+    h*j
+and eval_div(t:TwoOp, n: float) : float = 
+    let h = eval_func(t.first) n
+    let j = eval_func(t.second) n
+    h/j
+and eval_exp(t:TwoOp, n: float) : float = 
+    let h = eval_func(t.first) n
+    let j = eval_func(t.second) n
+    h**j
+
+and eval_op (o: Op) : float -> float = 
+    match o with
+    | Plus t -> (fun x -> eval_plus(t,x))
+    | Minus t -> (fun x -> eval_minus(t,x))
+    | Times t -> (fun x -> eval_times(t,x))
+    | Div t -> (fun x -> eval_div(t,x))
+    | Exp t -> (fun x -> eval_exp(t,x))    
+
 let eval_plot (plot: Plot, graph: Graph) : string = 
     draw_function (eval_func (plot.f), graph.domain, graph.domain.bounds.lower, eval_color plot.color, eval_line plot.line, 0)
 
@@ -170,5 +201,4 @@ let rec eval (graph: Graph) : string =
     
 
 // let eval_test (graph: Graph) : string = 
-//     // graph.plots[0].color
-//     // eval_plot graph.plots[0]
+//     graph.plots[0].f |> string

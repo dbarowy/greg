@@ -1,1 +1,1 @@
-Plot Tan(x), Solid, Green. x from -4 to 4.
+Plot (x / 2), Solid, Green. x from -4 to 4.

@@ -41,21 +41,21 @@ let pVal =
     <|>
     (var |>> (fun var -> Var var))) |>> (fun v -> Val v)
 
-let plus = pchar '+'
-let minus = pchar '-'
-let times = pchar '*'
-let div = pchar '/'
-let exp = pchar '^'
+let plus = pchar '+' <!> "plus"
+let minus = pchar '-' <!> "minus"
+let times = pchar '*' <!> "times"
+let div = pchar '/' <!> "div"
+let exp = pchar '^' <!> "exp"
 
-let op = plus <|> minus <|> times <|> div <|> exp
+let op = plus <|> minus <|> times <|> div <|> exp 
 
 let whichOp (left: Func, mid: char, right:Func) = 
     match mid with
-    | '+' -> Op(Plus (left, right))
-    | '-' -> Op(Minus (left, right))
-    | '*' -> Op(Times (left, right))
-    | '/' -> Op(Div (left, right))
-    | '^' -> Op(Exp (left, right))
+    | '+' -> Op(Plus {first = left; second = right})
+    | '-' -> Op(Minus {first=left; second=right})
+    | '*' -> Op(Times {first=left; second=right})
+    | '/' -> Op(Div {first=left; second=right})
+    | '^' -> Op(Exp {first=left; second=right})
     | _ -> failwith"invalid expression"
 
 let pOp = 
@@ -67,6 +67,7 @@ let pOp =
             (Func)
             (whichOp))
         (pchar ')')
+    <!> "pop"
 
 let pSin = 
     pright
@@ -93,7 +94,7 @@ let parens =
         Func
         (pchar ')')
 
-FuncImpl := Trig <|> pVal <|> pOp <|> parens
+FuncImpl := Trig <|> pOp <|> pVal <|> parens <!> "func"
 
 let pRed = pstr("Red") |>> (fun v -> Red v)
 let pGreen = pstr("Green")  |>> (fun v -> Green v)

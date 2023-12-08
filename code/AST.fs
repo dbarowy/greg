@@ -29,12 +29,13 @@ type Func =
 | Val of Val
 | Trig of Trig
 | Op of Op
+and TwoOp = {first: Func; second: Func}
 and Op = 
-| Plus of Func*Func
-| Minus of first: Func* second: Func
-| Times of Func*Func
-| Div of first: Func* second: Func
-| Exp of first: Func* second: Func
+| Plus of TwoOp
+| Minus of TwoOp
+| Times of TwoOp
+| Div of TwoOp
+| Exp of TwoOp
 and Trig = 
 | Sin of Func
 | Cos of Func
