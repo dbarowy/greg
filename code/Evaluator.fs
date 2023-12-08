@@ -49,13 +49,37 @@ let rec draw_function (funct: float -> float, domain: Domain, cur_value: float, 
     | "Dotted", false, _, _ -> draw_function (funct, domain, cur_value + (RESOLUTION/scaling_factor), color, line, iter+1)
     | _, _, _, _ -> "This shouldn't get here - somthing went wrong..."
 
+//brute force
+let tick_scaler (n: int): int = 
+    match n with
+    | x when x <= 12 -> 1
+    | x when x <= 24 -> 2
+    | x when x <= 60 -> 5
+    | x when x <= 120 -> 10
+    | x when x <= 240 -> 20
+    | x when x <= 600 -> 50
+    | x when x <= 1200 -> 100
+    | x when x <= 2400 -> 200
+    | x when x <= 6000 -> 500
+    | x when x <= 12000 -> 1000
+    | x when x <= 24000 -> 2000
+    | x when x <= 60000 -> 5000
+    | x when x <= 120000 -> 10000
+    | x when x <= 240000 -> 20000
+    | x when x <= 600000 -> 50000
+    | x when x <= 1200000 -> 100000
+    | _ -> 100000
+    
+
 // dynamic positioning of ticks on y axis
 // TODO: fix positioning of numbers in relation to axis when y-axis on far right side
 let rec yticks (domain: Domain, num_remaining: int, xpos: float) : string = 
     // local variable calculation to use for positioning
     let line_length = CANVAS_SZ - float(4.0*PADDING)
-    let cur_num = (-((domain.bounds.upper - domain.bounds.lower)/2) |> int) + num_remaining
-    let num = 2 * (((domain.bounds.upper - domain.bounds.lower)/2) |> int)
+    let dom_length = domain.bounds.upper - domain.bounds.lower
+    let tick_scale = tick_scaler dom_length
+    let cur_num = (-((dom_length)/2) |> int) + num_remaining
+    let num = 2 * (((dom_length)/2) |> int)
     let scale = line_length / float(num)
     let tick_length = 20.0
     let ypos = (float(num_remaining) * scale + 2.0*PADDING) 
@@ -65,14 +89,15 @@ let rec yticks (domain: Domain, num_remaining: int, xpos: float) : string =
     match num_remaining, cur_num with
     | -1, _ -> ""
     | _, 0 -> yticks(domain, (num_remaining - 1), xpos)
-    | _, _ -> "<line x1=\"" + xpos_start + "\" x2=\"" + (xpos_end |> string) + "\" y1=\"" + (ypos |> string) + "\" y2=\"" + (ypos |> string) + "\" stroke=\"black\" stroke-width=\"2\"/>\n" + 
-              "<text x=\"" + ((xpos_end + num_offset) |> string) + "\" y=\"" + ((ypos + 5.0) |> string) + "\" class=\"axisLabel\">" + (-cur_num |> string) + "</text>\n" + 
-              yticks(domain, (num_remaining - 1), xpos)
-
+    | _, x when x%tick_scale = 0 -> "<line x1=\"" + xpos_start + "\" x2=\"" + (xpos_end |> string) + "\" y1=\"" + (ypos |> string) + "\" y2=\"" + (ypos |> string) + "\" stroke=\"black\" stroke-width=\"2\"/>\n" + 
+                                    "<text x=\"" + ((xpos_end + num_offset) |> string) + "\" y=\"" + ((ypos + 5.0) |> string) + "\" class=\"axisLabel\">" + (-cur_num |> string) + "</text>\n" + 
+                                    yticks(domain, (num_remaining - 1), xpos)
+    | _, _ -> yticks(domain, (num_remaining - 1), xpos)
 
 let rec tickMarks (domain: Domain, num_remaining: int) : string = 
     let line_length = CANVAS_SZ - (4.0*PADDING)
     let num = domain.bounds.upper - domain.bounds.lower
+    let tick_scale = tick_scaler num
     let cur_num = domain.bounds.lower + num_remaining
     let scale = line_length / float(num)
     let tick_length = 20.0 
@@ -85,9 +110,10 @@ let rec tickMarks (domain: Domain, num_remaining: int) : string =
     | _, 0 -> "<line x1=\"" + (xpos |> string) + "\" x2=\"" + (xpos |> string) + "\" y1=\"" + ((2.0 * PADDING) |> string) + "\" y2=\"" + ((CANVAS_SZ - (2.0 * PADDING)) |> string) + "\" stroke=\"black\" stroke-width=\"4\"/>\n" + 
               tickMarks (domain, (num_remaining - 1)) + 
               yticks(domain, num, xpos)
-    | _, _ -> "<line x1=\"" + (xpos |> string) + "\" x2=\"" + (xpos |> string) + "\" y1=\"" + ypos_start + "\" y2=\"" + (ypos_end |> string) + "\" stroke=\"black\" stroke-width=\"2\"/>\n" + 
-              "<text x=\"" + ((xpos - 5.0) |> string) + "\" y=\"" + ((ypos_end + num_offset) |> string) + "\" class=\"axisLabel\">" + (cur_num |> string) + "</text>\n" + 
-              tickMarks (domain, (num_remaining - 1))
+    | _, x when x%tick_scale = 0 -> "<line x1=\"" + (xpos |> string) + "\" x2=\"" + (xpos |> string) + "\" y1=\"" + ypos_start + "\" y2=\"" + (ypos_end |> string) + "\" stroke=\"black\" stroke-width=\"2\"/>\n" + 
+                                    "<text x=\"" + ((xpos - 5.0) |> string) + "\" y=\"" + ((ypos_end + num_offset) |> string) + "\" class=\"axisLabel\">" + (cur_num |> string) + "</text>\n" + 
+                                    tickMarks (domain, (num_remaining - 1))
+    | _, _ -> tickMarks (domain, (num_remaining - 1))
 
 let eval_domain (domain: Domain) : string =
     let cszi = CANVAS_SZ 
@@ -118,6 +144,7 @@ let eval_color (color: Color) : string =
     | Black "Black" -> "black"
     | Yellow "Yellow" -> "yellow"
     | Orange "Orange" -> "orange"
+    | RGB (a,b,c) -> "rgb(" + (a |> string) + "," + (b |> string) + "," + (c |> string) + ")"
     | _ -> "black"
 
 let eval_line (line: LineType) : string = 

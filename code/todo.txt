@@ -1,0 +1,7 @@
+- decimals
+- fix parens? Seems hard
+- y domain
+- y axis if no x = 0
+- skip nums on axis when too high 
+- logs
+- loglog

@@ -1,1 +1,1 @@
-Plot (x / 2), Solid, Green. x from -4 to 4.
+Plot ((x^2)^(Sin(x))), Solid, RGB(250,120,175). x from -5 to 60.

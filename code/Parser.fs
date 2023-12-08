@@ -41,11 +41,11 @@ let pVal =
     <|>
     (var |>> (fun var -> Var var))) |>> (fun v -> Val v)
 
-let plus = pchar '+' <!> "plus"
-let minus = pchar '-' <!> "minus"
-let times = pchar '*' <!> "times"
-let div = pchar '/' <!> "div"
-let exp = pchar '^' <!> "exp"
+let plus = pchar '+'
+let minus = pchar '-'
+let times = pchar '*'
+let div = pchar '/'
+let exp = pchar '^'
 
 let op = plus <|> minus <|> times <|> div <|> exp 
 
@@ -67,7 +67,6 @@ let pOp =
             (Func)
             (whichOp))
         (pchar ')')
-    <!> "pop"
 
 let pSin = 
     pright
@@ -94,7 +93,7 @@ let parens =
         Func
         (pchar ')')
 
-FuncImpl := Trig <|> pOp <|> pVal <|> parens <!> "func"
+FuncImpl := Trig <|> pOp <|> pVal <|> parens
 
 let pRed = pstr("Red") |>> (fun v -> Red v)
 let pGreen = pstr("Green")  |>> (fun v -> Green v)
