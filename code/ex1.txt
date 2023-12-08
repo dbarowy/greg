@@ -1,1 +1,1 @@
-Plot (3 + Sin(x)), Dashed, Blue. x from -8 to 8.
+Plot (3 + Sin(x)), Solid, Blue. x from -8 to 8.

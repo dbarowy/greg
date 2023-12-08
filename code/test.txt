@@ -1,1 +1,1 @@
-Plot ((x^2)^(Sin(x))), Solid, RGB(250,120,175). x from -5 to 60.
+Plot ((g^2)^(Sin(g))), Solid, RGB(250,120,175). Plot (Cos(3*x)*(g^(1/2))), Solid, RGB(176, 193, 45). x from -10 to 10.
