@@ -1,9 +1,5 @@
 not code
 - a) video 
-- l) test suite
-- m) test for parser
-- n) test fot interpreter
-- z) more garbage input detection and response
 
 
 code

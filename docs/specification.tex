@@ -73,16 +73,16 @@ Danny Klein, Austin Osborn
         below as output
     \end{verbatim}
     \begin{center}
-        \includegraphics[width = 0.8\textwidth]{ex1.png}
+        \includegraphics[width = 0.5\textwidth]{ex1.png}
     \end{center}
     \item \begin{verbatim}
-        Plot (2/x), Dotted, Green. Plot (x^2)+1, Solid, Blue. Plot ((x^2)^Sin(x)), 
+        Plot (2/x), Dotted, Green. Plot ((x^2)+1), Solid, Blue. Plot ((x^2)^Sin(x)), 
         Dashed, Red. x from -2 to 5.
         "dotnet run ex2.txt > ex2.svg" produces an svg file with the image
         below as output
     \end{verbatim}
     \begin{center}
-        \includegraphics[width = 0.8\textwidth]{ex3.png}
+        \includegraphics[width = 0.5\textwidth]{ex3.png}
     \end{center}
     \item \begin{verbatim}
         Plot 1, Dashed, Black. x from -2 to 2.
@@ -90,12 +90,12 @@ Danny Klein, Austin Osborn
         below as output
     \end{verbatim}
     \begin{center}
-        \includegraphics[width = 0.8\textwidth]{ex2.png}
+        \includegraphics[width = 0.5\textwidth]{ex2.png}
     \end{center}
 \end{enumerate}
 
 \subsection{Language Concepts}
-    \quad The user would not need to understand much to write programs in our language. The user would need to be able to write equations (combining forms) in terms of numbers and variables (primitives), and represent their desired output with a linetype (primitive) and a color (primitive). A user who knows how to write equations, understands colors, and can tell the difference between a solid line and a dashed line, would be able to use our language easily. Our language takes primitives, the numbers and variables, and uses other combining forms such as exponents and trig functions to represent complex equations (combining form), and creates a graphical output (combining form) using the equations along with the color and linetype.
+    \quad The user would not need to understand much to write programs in our language. The user would need to be able to write equations (combining forms) in terms of numbers and variables (primitives), and represent their desired output with a linetype (primitive, ("Dashed", "Dotted", or "Solid")) and a color (primitive, any common color with the first letter capitalized, such as "Green" or "Pink", or "RGB(x,y,z)"). A user who knows how to write equations, understands colors, and can tell the difference between a solid line and a dashed line, would be able to use our language easily. Our language takes primitives, the numbers and variables, and uses other combining forms such as PEMDAS operations and trig functions to represent complex equations (combining form), and creates a graphical output (combining form) using the equations along with the color and linetype. Operations must be of the form (x op y), in that there must be paretheses around the whole operator (whitespace optional, see examples).
     \\ \quad The only leap necessary from knowing what can be done, to doing it is knowing the specifics of the syntax. This includes: each function beginning with the word Plot, then the function itself, followed by its modifications (linetype and color) separated by commas, followed by a period. Then, we include a domain after all of the functions structured as: variable then range then period. 
 
 
@@ -183,8 +183,8 @@ Danny Klein, Austin Osborn
     \end{longtable}
 \end{center}
 
-\subsection{Remainig Work}
-    \quad We currently have a parser which can parse in a function/domain and make an AST with it, as well as an evaluator which can generate a svg graph of a given domain and draw a function over it if provided with the function. The next step is to combine these two further so the evaluator does not have to be explicitly given a function, but it can be parsed in. Once this is working, all the baseline functionality will be there, and we will be able to focus on implementing extra functionality like color/line type which we have in our docs already, but if those go quickly, more could be added too. 
+\subsection{Remaining Work}
+    \quad A few further implementation things to make the calculator component more complete: implement decimals rather than just integers/using division as fractions. Adding some irrational numbers like e and pi. Making the parentheses with operations optional (but we forced it to avoid left recursion), implementing logarithms, and giving the user the option to specify a y-domain as well as x-domain. Visually, we could give the user the option to specify resolution, add a vertical axis even when the domain does not cross 0, being more flexible with where axis labels print, and adding log-log or log-linear plots.
 
 
 % DO NOT DELETE ANYTHING BELOW THIS LINE
