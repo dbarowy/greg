@@ -76,13 +76,12 @@ let tick_scaler (n: int): int =
 let rec yticks (domain: Domain, num_remaining: int, xpos: float) : string = 
     // local variable calculation to use for positioning
     let line_length = CANVAS_SZ - float(4.0*PADDING)
-    let dom_length = domain.bounds.upper - domain.bounds.lower
-    let tick_scale = tick_scaler dom_length
-    let cur_num = (-((dom_length)/2) |> int) + num_remaining
-    let num = 2 * (((dom_length)/2) |> int)
+    let num = domain.bounds.upper - domain.bounds.lower
+    let tick_scale = tick_scaler num
+    let cur_num: int = (-((num)/2) |> int) + num_remaining
     let scale = line_length / float(num)
     let tick_length = 20.0
-    let ypos = (float(num_remaining) * scale + 2.0*PADDING) 
+    let ypos = (float(num_remaining) * scale + 2.0*PADDING) + (if (num%2 = 1) then scale / 2.0 else 0)
     let xpos_start = (xpos - (tick_length / 2.0)) |> string
     let xpos_end   = (xpos + (tick_length / 2.0)) 
     let num_offset = 25.0
