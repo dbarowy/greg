@@ -1,1 +1,1 @@
-Plot 1, Dashed, Black. x from -2 to 2.
+Plot 1, Dotted, Black. x from -2 to 2.

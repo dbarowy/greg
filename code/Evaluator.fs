@@ -227,4 +227,4 @@ let rec eval (graph: Graph) : string =
     
 
 // let eval_test (graph: Graph) : string = 
-//     graph.plots[0].f |> string
+//     graph |> string
