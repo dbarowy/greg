@@ -1,1 +1,0 @@
-Plot (2/0), Solid, RGB(250,120,175). x from -2 to 5.
