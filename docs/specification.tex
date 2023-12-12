@@ -69,7 +69,6 @@ Danny Klein, Austin Osborn
 \begin{enumerate}
     \item \begin{verbatim}
         Plot (3 + Sin(x)), Solid, Blue. x from -8 to 8.
-        We will make a txt file with the command above. Lets call it ex1.txt.
         "dotnet run ex1.txt > ex1.svg" produces an svg file with the image
         below as output
     \end{verbatim}
@@ -77,22 +76,22 @@ Danny Klein, Austin Osborn
         \includegraphics[width = 0.8\textwidth]{ex1.png}
     \end{center}
     \item \begin{verbatim}
-        Plot (2/x), Dotted, Green. Plot (x^2)+1, Solid, Blue. Plot (3^sin(x)), 
-        Dashed, Red. x from 0 to 5.
-        We would put this command in a new txt file called ex2.txt.
-        The command "dotnet run ex2.txt |> ex2.svg" produces an svg file 
-        that looks like three functions all plotted on the same set of axes.
-        We have not yet coded the functionality for dashed and dotted lines, 
-        but will add a picture of the output once we do.
+        Plot (2/x), Dotted, Green. Plot (x^2)+1, Solid, Blue. Plot ((x^2)^Sin(x)), 
+        Dashed, Red. x from -2 to 5.
+        "dotnet run ex2.txt > ex2.svg" produces an svg file with the image
+        below as output
     \end{verbatim}
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{ex3.png}
+    \end{center}
     \item \begin{verbatim}
         Plot 1, Dashed, Black. x from -2 to 2.
-        We would put this command in a new txt file called ex3.txt.
-        The command "dotnet run ex3.txt |> ex3.svg" produces an svg file 
-        of this function, a dotted horizontal line.
-        We have not yet coded the functionality for dashed lines, 
-        but will add a picture of the output once we do.
+        "dotnet run ex1.txt > ex1.svg" produces an svg file with the image
+        below as output
     \end{verbatim}
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{ex2.png}
+    \end{center}
 \end{enumerate}
 
 \subsection{Language Concepts}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.10.13)  3 DEC 2023 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.10.13)  12 DEC 2023 14:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -985,181 +985,169 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 7
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (17.24501pt too wide) in paragraph at lines 75--75
- []        \OT1/pcr/m/n/10 We will make a txt file with the command above. Lets
- call it ex1.txt.[] 
- []
-
-
-Overfull \hbox (5.24501pt too wide) in paragraph at lines 75--75
- []        \OT1/pcr/m/n/10 "dotnet run ex1.txt |> ex1.svg" produces an svg file
- with the image[] 
- []
-
 <ex1.png, id=35, 761.84625pt x 761.84625pt>
 File: ex1.png Graphic file (type png)
 <use ex1.png>
-Package pdftex.def Info: ex1.png  used on input line 77.
+Package pdftex.def Info: ex1.png  used on input line 76.
 (pdftex.def)             Requested size: 375.80544pt x 375.79564pt.
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (23.24501pt too wide) in paragraph at lines 87--87
+Overfull \hbox (47.24501pt too wide) in paragraph at lines 83--83
  []        \OT1/pcr/m/n/10 Plot (2/x), Dotted, Green. Plot (x^2)+1, Solid, Blue
-. Plot (3^sin(x)),[] 
+. Plot ((x^2)^Sin(x)),[] 
  []
 
-
-Overfull \hbox (11.24501pt too wide) in paragraph at lines 87--87
- []        \OT1/pcr/m/n/10 that looks like three functions all plotted on the s
-ame set of axes.[] 
- []
-
-
-Overfull \hbox (11.24501pt too wide) in paragraph at lines 87--87
- []        \OT1/pcr/m/n/10 We have not yet coded the functionality for dashed a
-nd dotted lines,[] 
- []
-
+<ex3.png, id=52, 486.81876pt x 485.815pt>
+File: ex3.png Graphic file (type png)
+<use ex3.png>
+Package pdftex.def Info: ex3.png  used on input line 85.
+(pdftex.def)             Requested size: 375.80544pt x 375.02756pt.
 [2 <./ex1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+<ex2.png, id=59, 486.81876pt x 485.815pt>
+File: ex2.png Graphic file (type png)
+<use ex2.png>
+Package pdftex.def Info: ex2.png  used on input line 93.
+(pdftex.def)             Requested size: 375.80544pt x 375.02756pt.
+ [3 <./ex3.png>] [4 <./ex2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
 []|\OT1/ptm/m/n/10 RGB(200,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
 []|\OT1/ptm/m/n/10 Num*
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
 \OT1/ptm/m/n/10 Num*
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--168
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
 []|\OT1/ptm/m/n/10 int or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
 []|\OT1/ptm/m/n/10 Plot x,
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 1
-76.
+75.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 176.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 175.
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
 \OT1/ptm/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
 \OT1/ptm/m/n/10 Func*
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
 \OT1/ptm/m/n/10 Line-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
 \OT1/ptm/m/n/10 Type*
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--178
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
 []|\OT1/ptm/m/n/10 record
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--178
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
 \OT1/ptm/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
 []|\OT1/ptm/m/n/10 Domain of \OMS/cmsy/m/n/10 f\OT1/ptm/m/n/10 var: Var;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
 []|\OT1/ptm/m/n/10 record
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
 \OT1/ptm/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
 \OT1/ptm/m/n/10 char*
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--182
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
 []|\OT1/ptm/m/n/10 Plot (2*x),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--182
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
 \OT1/ptm/m/n/10 Solid, Red.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--182
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
 \OT1/ptm/m/n/10 Plot (3+x),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--182
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
 []|\OT1/ptm/m/n/10 record
  []
 
 
-Underfull \hbox (badness 4634) in paragraph at lines 182--182
+Underfull \hbox (badness 4634) in paragraph at lines 181--181
 \OT1/ptm/m/n/10 List *
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--182
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
 \OT1/ptm/m/n/10 Do-
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 182--183
+Underfull \hbox (badness 1163) in paragraph at lines 181--182
 []|\OT1/ptm/m/n/10 A Graph is our fi-nal com-bin-ing
  []
 
-[3]
-Underfull \vbox (badness 10000) detected at line 184
+
+Underfull \vbox (badness 10000) detected at line 183
  []
 
-[4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
+[5] [6] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (./specification.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 191.
 Package rerunfilecheck Info: File `specification.out' has not changed.
 (rerunfilecheck)             Checksum: 93DD49CF25DFA4577100EB6D47001DF1;362.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  ) 
 Here is how much of TeX's memory you used:
- 27926 strings out of 483107
- 627490 string characters out of 5964629
- 925779 words of memory out of 5000000
- 42460 multiletter control sequences out of 15000+600000
+ 27940 strings out of 483107
+ 627624 string characters out of 5964629
+ 931779 words of memory out of 5000000
+ 42470 multiletter control sequences out of 15000+600000
  540403 words of font info for 42 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 67i,11n,71p,1607b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,11n,71p,1607b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
@@ -1169,10 +1157,10 @@ lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on specification.pdf (5 pages, 175239 bytes).
+Output written on specification.pdf (7 pages, 246145 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
+ 84 words of extra memory for PDF output out of 10000 (max. 10000000)
 

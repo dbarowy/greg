@@ -34,8 +34,8 @@ let rec draw_function (funct: float -> float, domain: Domain, cur_value: float, 
 
     let over_max = cur_value + (RESOLUTION/scaling_factor) >= domain.bounds.upper
 
-    let is_dash = ((iter % int(16.0/(RESOLUTION*2.0))) - 8) >= 0
-    let is_dot = (iter % int(9.0/(RESOLUTION*2.0))) = 0
+    let is_dash = ((iter % int(24.0/(RESOLUTION*2.0))) - 12) >= 0
+    let is_dot = (iter % int(16.0/(RESOLUTION*2.0))) = 0
 
     match line, over_max, is_dash, is_dot with 
     | _, true, _, _  -> ""

@@ -3,7 +3,6 @@ not code
 - l) test suite
 - m) test for parser
 - n) test fot interpreter
-- t) examples (slight change, new pics and edit funcs)
 - z) more garbage input detection and response
 
 

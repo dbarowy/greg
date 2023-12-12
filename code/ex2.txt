@@ -1,1 +1,1 @@
-Plot (2/x), Dotted, Green. Plot ((x^2)+1), Solid, Blue. Plot ((x^2)^Sin(x)), Dashed, Red. x from 0 to 5.
+Plot (2/x), Dotted, Green. Plot ((x^2)+1), Solid, Blue. Plot ((x^2)^Sin(x)), Dashed, Red. x from -2 to 5.
